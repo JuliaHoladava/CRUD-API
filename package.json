@@ -1,0 +1,22 @@
+{
+  "name": "crud-api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Simple CRUD API used an in-memory database underneath",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Julia Holadava",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "@types/uuid": "^9.0.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
+}
