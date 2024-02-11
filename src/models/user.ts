@@ -1,6 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
-
-interface User {
+export interface User {
   id: string;
   username: string;
   age: number;
@@ -9,12 +7,7 @@ interface User {
 
 const users: User[] = [];
 
-export const addUser = (
-  username: string,
-  age: number,
-  hobbies: string[],
-): User => {
-  const newUser: User = { id: uuidv4(), username, age, hobbies };
+export const addUser = (newUser: User): User => {
   users.push(newUser);
   return newUser;
 };
@@ -31,7 +24,7 @@ export const updateUser = (
   id: string,
   username: string,
   age: number,
-  hobbies: string[],
+  hobbies: string[]
 ): User | undefined => {
   const user = getUserById(id);
 
