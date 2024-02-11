@@ -1,10 +1,7 @@
-import { createServer } from "node:http";
+import { createServer } from 'node:http';
+import { handleRequest } from './api/routes/index';
 
-const server = createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Hello, World!\n");
-});
+const server = createServer(handleRequest);
 
 const PORT = process.env.PORT || 4000;
 server.listen(PORT, () => {
