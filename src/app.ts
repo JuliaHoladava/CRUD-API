@@ -1,5 +1,5 @@
 import { createServer } from 'node:http';
-import { handleRequest } from './api/routes/index';
+import { handleRequest } from './api/routes/index.js';
 
 const server = createServer(handleRequest);
 
