@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export interface User {
   id: string;
   username: string;
@@ -5,7 +7,15 @@ export interface User {
   hobbies: string[];
 }
 
-const users: User[] = [];
+const users: User[] = [
+  { id: uuidv4(), username: 'Alice', age: 25, hobbies: ['Reading', 'Running'] },
+  {
+    id: uuidv4(),
+    username: 'Mad March Hare',
+    age: 30,
+    hobbies: ['Being late', 'Running'],
+  },
+];
 
 export const addUser = (newUser: User): User => {
   users.push(newUser);
