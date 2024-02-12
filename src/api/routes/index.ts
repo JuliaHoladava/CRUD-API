@@ -1,5 +1,5 @@
 import { IncomingMessage, ServerResponse } from 'node:http';
-import { userEndpoints } from './userRoutes';
+import { userEndpoints } from './userRoutes.js';
 
 interface RouteHandler {
   (req: IncomingMessage, res: ServerResponse): void;
@@ -18,9 +18,10 @@ const routes: Routes = {
 };
 
 export const handleRequest = (req: IncomingMessage, res: ServerResponse) => {
-  const { url, method } = req;
+  const normalizedUrl = req.url?.endsWith('/') ? req.url.slice(0, -1) : req.url;
+  const { method } = req;
 
-  const route: Route | undefined = routes[url || ''];
+  const route: Route | undefined = routes[normalizedUrl || ''];
   const handler: RouteHandler | undefined = route
     ? route[method || '']
     : undefined;
